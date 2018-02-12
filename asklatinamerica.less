@@ -1,0 +1,56 @@
+/*
+
+
+CSS Theme Latin by /u/serramatutu
+
+Learn more at /r/AskLatinAmerica
+
+This theme is written with LessCss (see more in: lesscss.org)
+
+Flag fonts designed by Freepik from Flaticon
+
+*/
+
+@import "colors.less";
+
+/* Flair flags */
+.flair {
+    &::after {
+        width: 15px;
+        height: 15px;
+        line-height: 15px; // Aligns text vertically
+        background-size: 15px 15px;
+        content: "";
+        margin-left: 5px;
+        display: inline-block;
+    }
+    
+    /* TODO: Add more countries */
+    &.flair-brasil::after {
+        background-image: url('/flags/brazil.png');
+    }
+    
+    &.flair-ireland::after {
+        background-image: url('/flags/ireland.png');
+    }
+    
+    &.flair-russia::after {
+        background-image: url('/flags/russia.png');
+    }
+    
+    &.flair-usa::after {
+        background-image: url('/flags/united-states-of-america.png');
+    }
+}
+
+.thing {
+    &.stickied.link { // Fixed post titles
+        a.title {
+            color: @color-primary-4;    
+        }
+    }
+    
+    a.title { // Post titles
+        color: @color-secondary-2-4;
+    }
+}
