@@ -13,5 +13,6 @@ lessc asklatinamerica.less asklatinamerica.css
 - [ ] Test it in mobile (just to be safe)
 - [ ] Background image for header (like AskEurope)
 - [ ] Create country flair classes
+- [ ] Enable lesscss browser-specific features plugin (eg: -moz-, -webkit- etc)
 
 - [ ] Credit flag font author in subreddit

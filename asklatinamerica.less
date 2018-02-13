@@ -11,37 +11,91 @@ Flag fonts designed by Freepik from Flaticon
 
 */
 
-@import "colors.less";
+@import "colors2.less";
+/* 
+
+COLOR PALETTE USAGE:
+
+Intensity:
+-> 0: Normal
+-> 1: Barely visible
+-> 2: Mild
+-> 3: Strong
+-> 4: Intense
+*/
+
+
+@import "iconpaths.less";
+
+/* General input */
+
+form {
+    input[type="checkbox"] {   
+        -moz-appearance: none; // TODO: Remove this and let Less to it for you :D
+        appearance: none;
+        display: inline-block;
+
+        vertical-align: middle;
+        border: none;
+
+        cursor: pointer;
+        background-color: white;
+
+        height: 16px;
+        width: 16px;
+
+        margin: 0 10px 0 0;
+
+        &:checked {
+            border: white 2px solid;
+            background-color: @color-primary-0;
+        }
+    }
+    
+    background-color: inherit;
+}
 
 /* Flair flags */
-.flair {
+.linkflairlabel, .flair {
     display: inline-block;
     
+    line-height: 100%;
+    
+    border-radius: 0;
+    border: none;
+    
+    background-color: @color-complement-1;
+    
+    padding: 2px 2px 2px 2px;
+}
+
+.flair {
     &.flair-icon::after { // Sets up flair to have icon (eg country) after it
         width: 10px;
         height: 10px;
+        vertical-align: top;
         
-        background-size: 10px 10px;
+        background-size: 100% 100%;
         content: "";
         margin-left: 5px;
         display: inline-block;
     }
     
     /* TODO: Add more countries */
-    &.flair-brasil::after {
-        background-image: url('/flags/brazil.png');
+    &.flair-brazil::after {
+        background-image: url("@{flag-brazil}");
     }
     
     &.flair-ireland::after {
-        background-image: url('/flags/ireland.png');
+        background-image: url("@{flag-ireland}");
     }
     
     &.flair-russia::after {
-        background-image: url('/flags/russia.png');
+        background-image: url("@{flag-russia}");
     }
     
     &.flair-usa::after {
-        background-image: url('/flags/united-states-of-america.png');
+        background-image: url("@{flag-usa}");
     }
 }
 
@@ -55,6 +109,150 @@ Flag fonts designed by Freepik from Flaticon
     
     a.title { // Post titles
         color: @color-secondary-2-4;
+    }
+}
+
+/* Sidebar */
+div.side {
+    background-color: @color-secondary-1-2;
+    
+    padding: 7px 7px 7px 7px;
+    
+    /* General tags */
+    h1 { // Restore header defaults
+        font-size: 25px !important;
+    }
+    h2 {
+        font-weight: bold;
+    }
+    
+    a {
+        color: @color-primary-0;
+        
+        &:hover {
+            text-decoration: none;
+            color: @color-primary-4;
+        }
+    }
+    
+    /* hr between sections (sorta) */
+    .tagline {
+        margin-bottom: 12px;
+        color: @color-primary-3;
+    }
+    
+    .titlebox,
+    .usertext-body
+    {
+        padding-top: 12px;
+        border-top: @color-secondary-1-0 2px solid;
+    }
+    
+    h1.redditname {
+        padding-bottom: 12px;
+        border-bottom: @color-secondary-1-0 2px solid;
+    }
+    
+    form#search { // Search        
+        div#searchexpando {
+            border: none;
+            border-radius: 0;
+            background-color: @color-secondary-1-2;
+            
+            padding: 0 0 0 0;
+            
+            label {
+                padding: 5px 5px 5px 5px;
+                
+                input[type="checkbox"] {
+                    margin: 0 10px 0 0;
+                }
+            }
+        }
+    }
+    
+    .sidebox.submit { // Submit buttons        
+        .morelink {
+            background-position: 0 0;
+            transition: background-position 0.4s;
+            
+            background-size: 100% 200%;
+            border: none;
+            
+            letter-spacing: 2px;
+            font-size: 10px;
+            text-transform: uppercase;
+            
+            a {
+                color: white;   
+            }
+            
+            &:hover {
+                background-position: 0 -100%;
+            }
+            
+            .nub { // Button is not pointy
+                display: none;
+            }
+        }
+        
+        &.submit-link .morelink { // Submit link button            
+            background-image: linear-gradient(to bottom, @color-complement-0 50%, @color-complement-3 50%);
+        }
+        
+        &.submit-text .morelink { // Submit text button            
+            background-image: linear-gradient(to bottom, @color-secondary-2-0 50%, @color-secondary-2-3 50%);
+        }
+    }
+    
+    .titlebox {
+        h1.redditname { // Subreddit title        
+            a {
+                font-size: 25px;
+                color: black;
+
+                padding-bottom: 12px;   
+            }
+        }
+        
+        .fancy-toggle-button.subscribe-button {
+            float: right;
+            
+            margin: -42px 0 0 0; // Translates button upwards
+            
+            position: relative;
+            
+            a {
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                
+                padding: 5px 20px 5px 20px;
+                
+                color: white;
+                
+                // Button animation
+                background-image: linear-gradient(to bottom, @color-primary-0 50%, @color-primary-3 50%);
+                background-size: 100% 200%;
+                background-position: 0 0;
+                transition: background-position 0.4s;
+                &:hover {
+                    background-position: 0 -100%;
+                }
+                
+                border: none;
+                border-radius: 0;
+            }
+        }
+        
+        .subscribers {
+            width: 100%;
+        }
+        
+        form.toggle {
+            background-color: inherit;
+            
+            color: black;
+        }
     }
 }
 
