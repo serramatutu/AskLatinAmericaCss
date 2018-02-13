@@ -1,0 +1,340 @@
+@import "colors2.less";
+
+/* Sidebar */
+div.side {
+    background-color: @color-secondary-1-2;
+    padding: 7px 7px 7px 7px;
+    
+    color: @color-secondary-2-4;
+    * {
+        color: inherit;
+    }
+    
+    /* General tags */
+    h1 { // Restore header defaults
+        font-size: 25px !important;
+    }
+    h2 {
+        font-weight: bold;
+    }
+    h6 {
+        text-decoration: none;
+        font-weight: bold;
+        
+        font-size: 13px !important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        text-transform: uppercase;
+        
+        letter-spacing: 2px;
+    }
+    
+    ul {
+        list-style-type: none;
+        parring: 0 0 0 0;
+        margin: 0 0 0 0;
+        
+        li {
+            padding-left: 1em;
+            
+            &::before {
+                content: "4"; font-family:"Webdings"; // Somehow this is a nice arrow :p
+            }
+        }
+    }
+    
+    a {
+        color: @color-primary-3;
+        
+        &:hover {
+            color: @color-primary-4;
+            
+            text-decoration: none;
+        }
+    }
+    
+    del { // Strikethrough
+        color: @color-secondary-2-3;
+    }
+    
+    blockquote {
+        border-left: @color-primary-0 2px solid;
+        color: @color-secondary-1-4;
+    }
+    
+    table { // Tables
+        td, th {
+            border-color: @color-primary-0;   
+        }
+        
+        th {
+            background-color: @color-primary-0;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        td {
+            background-color: @color-secondary-1-1;
+        }
+    }
+    
+    hr { // For actual hrs from usercontent (looks different than section dividers)
+        background-color: @color-primary-0;
+        height: 1px;
+        
+        padding: 0 0 0 0;
+        margin: 0 4px 0 4px;
+        
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+    
+    /* section dividers (sorta) */
+    .tagline {
+        margin-bottom: 12px;
+        color: @color-primary-3;
+    }
+    
+    // hr top
+    .titlebox,
+    .titlebox .bottom,
+    .usertext-body,
+    form.toggle,
+    .sidecontentbox .title,
+    .account-activity-box
+    {
+        padding-top: 12px;
+        border-top: @color-secondary-1-0 2px solid;
+    }
+    
+    // hr bottom
+    .titlebox
+    {
+        padding-bottom: 12px;
+        border-bottom: @color-secondary-1-0 2px solid;
+    }
+    
+    form#search { // Search        
+        div#searchexpando {
+            border: none;
+            border-radius: 0;
+            background-color: @color-secondary-1-2;
+            
+            padding: 0 0 0 0;
+            
+            label {
+                padding: 5px 5px 5px 5px;
+                
+                input[type="checkbox"] {
+                    margin: 0 10px 0 0;
+                }
+            }
+        }
+    }
+    
+    .sidebox.submit, 
+    .sidebox.create, 
+    .sidecontentbox a.helplink,
+    .account-activity-box p a { // Big buttons    
+        color: white;
+        font-weight: bold;
+
+        display: block;
+        text-align: center;
+        position: relative;
+        width: 100%;
+        height: 29px;
+        line-height: 29px;
+        
+        .morelink, & {
+            background-position: 0 0;
+            transition: background-position 0.15s;
+            
+            background-size: 100% 200%;
+            border: none;
+            
+            letter-spacing: 2px;
+            font-size: 10px;
+            text-transform: uppercase;
+            
+            a {
+                color: white;
+            }
+            
+            &:hover {
+                background-position: 0 -100%;
+            }
+            
+            .nub { // Button is not pointy
+                display: none;
+            }
+        }
+        
+        & { // Default is red
+            background-image: linear-gradient(to bottom, @color-primary-0 50%, @color-primary-3 50%);
+        }
+        
+        &.submit-link .morelink { // Submit link button            
+            background-image: linear-gradient(to bottom, @color-complement-0 50%, @color-complement-3 50%);
+        }
+        
+        &.submit-text .morelink { // Submit text button            
+            background-image: linear-gradient(to bottom, @color-secondary-2-0 50%, @color-secondary-2-3 50%);
+        }
+        
+        &.create .morelink { // Submit text button            
+            background-image: linear-gradient(to bottom, @color-primary-0 50%, @color-primary-3 50%);
+        }
+    }
+    
+    .titlebox {
+        .usertext {
+            padding-bottom: 12px;
+        }
+        
+        h1.redditname { // Subreddit title        
+            a {
+                font-size: 15px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: black;
+
+                padding-bottom: 12px;
+                
+                &:hover {
+                    color: @color-primary-3;
+                }
+            }
+            
+            margin-bottom: 10px;
+        }
+        
+        .fancy-toggle-button.subscribe-button {
+            float: right;
+            
+            margin: -32px 0 0 0; // Translates button upwards
+            
+            position: relative;
+            
+            a {
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                
+                padding: 5px 20px 5px 20px;
+                
+                color: white;
+                
+                // Button animation
+                background-image: linear-gradient(to bottom, @color-primary-0 50%, @color-primary-3 50%);
+                background-size: 100% 200%;
+                background-position: 0 0;
+                transition: background-position 0.15s;
+                &:hover {
+                    background-position: 0 -100%;
+                }
+                
+                border: none;
+                border-radius: 0;
+            }
+        }
+        
+        span.subscribers {
+            width: 100%;
+            
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            
+            font-size: 9px;
+            
+            color: @color-secondary-1-4;
+        }
+        
+        p.users-online {
+            float: right;
+            
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            
+            font-size: 9px;
+            
+            color: @color-secondary-1-4;
+        }
+        
+        form.toggle {
+            background-color: inherit;
+            
+            color: black;
+            
+            text-transform: uppercase;
+            font-size: 9px;
+            font-weight: lighter;
+            
+            margin-top: 10px;
+        }
+        
+        div.tagline {
+             margin-left: 26px;
+        }
+        
+        div.bottom {
+            display: inline-block;
+            color: @color-secondary-1-4;
+            
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            
+            span.age {
+                float: left;
+                
+                margin-top: 7px;
+            }
+        }
+    }
+    
+    .sidebox.create .spacer {
+        display: none;
+    }
+    
+    .sidecontentbox { // Moderators section
+        a.helplink {
+            margin-bottom: 12px;
+        }
+        
+        .title {
+            h1 {
+                color: inherit;
+                position: relative;
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            
+            display: inline-block;
+            width: 100%;
+        }
+        
+        ul.content {
+            border: none;
+            
+            li {
+                &::before {
+                    content: "";
+                }
+                padding: 2px 0 2px 0;
+                
+                &.more a {
+                    color: @color-secondary-2-0;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    font-size: 9px;
+                    
+                    &:hover {
+                        color: @color-secondary-2-3;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,68 @@
+@import "colors2.less";
+
+/* Footer */
+div.footer-parent, p.debuginfo {
+    background-color: @color-primary-4;
+    
+    & + img#hsts_pixel { // What is this thing even doing here lol
+        display: none;
+    }
+    div.footer {
+        border: none;
+        
+        div.col {
+            border: none;
+            
+            li {
+                &.title {
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    color: @color-secondary-1-1;
+                    letter-spacing: 2px;
+                }
+                
+                margin-top: 5px;
+            }
+        }
+        
+        max-width: 800px;
+    }
+    
+    a {
+        color: @color-primary-0;
+        
+        &.buygold {
+            color: @color-secondary-1-3;
+            
+            &:hover {
+                color: @color-secondary-1-4;
+            }
+        }
+        
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: none;
+            color: @color-primary-1;
+        }
+    }
+    
+    p.bottommenu {
+        color: @color-primary-0;
+        
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        
+        padding-bottom: 5px;
+        padding-top: 5px;
+        
+        a {
+            color: @color-primary-2;
+            
+            &:hover {
+                color: @color-primary-1;
+            }
+        }
+    }
+}

@@ -38,74 +38,18 @@ Intensity:
 -> 3: Strong
 -> 4: Intense
 */
+/* Import sections */
 /* Use this to import to reddit instead as it doesn't accept literal paths */
-/* General input */
-form {
-  background-color: inherit;
-}
-form input[type="checkbox"] {
-  -moz-appearance: none;
-  appearance: none;
-  display: inline-block;
-  vertical-align: middle;
-  border: none;
-  cursor: pointer;
-  background-color: white;
-  height: 16px;
-  width: 16px;
-  margin: 0 10px 0 0;
-}
-form input[type="checkbox"]:checked {
-  border: white 2px solid;
-  background-color: #AA3C39;
-}
-/* Flair flags */
-.linkflairlabel,
-.flair {
-  display: inline-block;
-  line-height: 100%;
-  border-radius: 0;
-  border: none;
-  background-color: #C0DCC2;
-  padding: 2px 2px 2px 2px;
-}
-.flair {
-  /* TODO: Add more countries */
-}
-.flair.flair-icon::after {
-  width: 10px;
-  height: 10px;
-  vertical-align: top;
-  background-size: 100% 100%;
-  content: "";
-  margin-left: 5px;
-  display: inline-block;
-}
-.flair.flair-brazil::after {
-  background-image: url("%%brazil%%");
-}
-.flair.flair-ireland::after {
-  background-image: url("%%ireland%%");
-}
-.flair.flair-russia::after {
-  background-image: url("%%russia%%");
-}
-.flair.flair-usa::after {
-  background-image: url("%%united-states-of-america%%");
-}
-/* Post displays */
-.thing.stickied.link a.title {
-  color: #AA3C39;
-}
-.thing a.title {
-  color: #090226;
-}
 /* Sidebar */
 div.side {
   background-color: #E4D389;
   padding: 7px 7px 7px 7px;
+  color: #090226;
   /* General tags */
-  /* hr between sections (sorta) */
+  /* section dividers (sorta) */
+}
+div.side * {
+  color: inherit;
 }
 div.side h1 {
   font-size: 25px !important;
@@ -113,23 +57,81 @@ div.side h1 {
 div.side h2 {
   font-weight: bold;
 }
+div.side h6 {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px !important;
+}
+div.side h1,
+div.side h2,
+div.side h3,
+div.side h4,
+div.side h5,
+div.side h6 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+div.side ul {
+  list-style-type: none;
+  parring: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+div.side ul li {
+  padding-left: 1em;
+}
+div.side ul li::before {
+  content: "4";
+  font-family: "Webdings";
+}
 div.side a {
-  color: #AA3C39;
+  color: #700A07;
 }
 div.side a:hover {
-  text-decoration: none;
   color: #370100;
+  text-decoration: none;
+}
+div.side del {
+  color: #1A0E4E;
+}
+div.side blockquote {
+  border-left: #AA3C39 2px solid;
+  color: #372C00;
+}
+div.side table td,
+div.side table th {
+  border-color: #AA3C39;
+}
+div.side table th {
+  background-color: #AA3C39;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+div.side table td {
+  background-color: #FFF9DF;
+}
+div.side hr {
+  background-color: #AA3C39;
+  height: 1px;
+  padding: 0 0 0 0;
+  margin: 0 4px 0 4px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 div.side .tagline {
   margin-bottom: 12px;
   color: #700A07;
 }
 div.side .titlebox,
-div.side .usertext-body {
+div.side .titlebox .bottom,
+div.side .usertext-body,
+div.side form.toggle,
+div.side .sidecontentbox .title,
+div.side .account-activity-box {
   padding-top: 12px;
   border-top: #AA9539 2px solid;
 }
-div.side h1.redditname {
+div.side .titlebox {
   padding-bottom: 12px;
   border-bottom: #AA9539 2px solid;
 }
@@ -145,38 +147,103 @@ div.side form#search div#searchexpando label {
 div.side form#search div#searchexpando label input[type="checkbox"] {
   margin: 0 10px 0 0;
 }
-div.side .sidebox.submit .morelink {
+div.side .sidebox.submit,
+div.side .sidebox.create,
+div.side .sidecontentbox a.helplink,
+div.side .account-activity-box p a {
+  color: white;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 29px;
+  line-height: 29px;
+  background-image: linear-gradient(to bottom, #AA3C39 50%, #700A07 50%);
+}
+div.side .sidebox.submit .morelink,
+div.side .sidebox.create .morelink,
+div.side .sidecontentbox a.helplink .morelink,
+div.side .account-activity-box p a .morelink,
+div.side .sidebox.submit,
+div.side .sidebox.create,
+div.side .sidecontentbox a.helplink,
+div.side .account-activity-box p a {
   background-position: 0 0;
-  transition: background-position 0.4s;
+  transition: background-position 0.15s;
   background-size: 100% 200%;
   border: none;
   letter-spacing: 2px;
   font-size: 10px;
   text-transform: uppercase;
 }
-div.side .sidebox.submit .morelink a {
+div.side .sidebox.submit .morelink a,
+div.side .sidebox.create .morelink a,
+div.side .sidecontentbox a.helplink .morelink a,
+div.side .account-activity-box p a .morelink a,
+div.side .sidebox.submit a,
+div.side .sidebox.create a,
+div.side .sidecontentbox a.helplink a,
+div.side .account-activity-box p a a {
   color: white;
 }
-div.side .sidebox.submit .morelink:hover {
+div.side .sidebox.submit .morelink:hover,
+div.side .sidebox.create .morelink:hover,
+div.side .sidecontentbox a.helplink .morelink:hover,
+div.side .account-activity-box p a .morelink:hover,
+div.side .sidebox.submit:hover,
+div.side .sidebox.create:hover,
+div.side .sidecontentbox a.helplink:hover,
+div.side .account-activity-box p a:hover {
   background-position: 0 -100%;
 }
-div.side .sidebox.submit .morelink .nub {
+div.side .sidebox.submit .morelink .nub,
+div.side .sidebox.create .morelink .nub,
+div.side .sidecontentbox a.helplink .morelink .nub,
+div.side .account-activity-box p a .morelink .nub,
+div.side .sidebox.submit .nub,
+div.side .sidebox.create .nub,
+div.side .sidecontentbox a.helplink .nub,
+div.side .account-activity-box p a .nub {
   display: none;
 }
-div.side .sidebox.submit.submit-link .morelink {
+div.side .sidebox.submit.submit-link .morelink,
+div.side .sidebox.create.submit-link .morelink,
+div.side .sidecontentbox a.helplink.submit-link .morelink,
+div.side .account-activity-box p a.submit-link .morelink {
   background-image: linear-gradient(to bottom, #2D8632 50%, #06580B 50%);
 }
-div.side .sidebox.submit.submit-text .morelink {
+div.side .sidebox.submit.submit-text .morelink,
+div.side .sidebox.create.submit-text .morelink,
+div.side .sidecontentbox a.helplink.submit-text .morelink,
+div.side .account-activity-box p a.submit-text .morelink {
   background-image: linear-gradient(to bottom, #3E3175 50%, #1A0E4E 50%);
 }
+div.side .sidebox.submit.create .morelink,
+div.side .sidebox.create.create .morelink,
+div.side .sidecontentbox a.helplink.create .morelink,
+div.side .account-activity-box p a.create .morelink {
+  background-image: linear-gradient(to bottom, #AA3C39 50%, #700A07 50%);
+}
+div.side .titlebox .usertext {
+  padding-bottom: 12px;
+}
+div.side .titlebox h1.redditname {
+  margin-bottom: 10px;
+}
 div.side .titlebox h1.redditname a {
-  font-size: 25px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   color: black;
   padding-bottom: 12px;
 }
+div.side .titlebox h1.redditname a:hover {
+  color: #700A07;
+}
 div.side .titlebox .fancy-toggle-button.subscribe-button {
   float: right;
-  margin: -42px 0 0 0;
+  margin: -32px 0 0 0;
   position: relative;
 }
 div.side .titlebox .fancy-toggle-button.subscribe-button a {
@@ -187,19 +254,83 @@ div.side .titlebox .fancy-toggle-button.subscribe-button a {
   background-image: linear-gradient(to bottom, #AA3C39 50%, #700A07 50%);
   background-size: 100% 200%;
   background-position: 0 0;
-  transition: background-position 0.4s;
+  transition: background-position 0.15s;
   border: none;
   border-radius: 0;
 }
 div.side .titlebox .fancy-toggle-button.subscribe-button a:hover {
   background-position: 0 -100%;
 }
-div.side .titlebox .subscribers {
+div.side .titlebox span.subscribers {
   width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 9px;
+  color: #372C00;
+}
+div.side .titlebox p.users-online {
+  float: right;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 9px;
+  color: #372C00;
 }
 div.side .titlebox form.toggle {
   background-color: inherit;
   color: black;
+  text-transform: uppercase;
+  font-size: 9px;
+  font-weight: lighter;
+  margin-top: 10px;
+}
+div.side .titlebox div.tagline {
+  margin-left: 26px;
+}
+div.side .titlebox div.bottom {
+  display: inline-block;
+  color: #372C00;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+div.side .titlebox div.bottom span.age {
+  float: left;
+  margin-top: 7px;
+}
+div.side .sidebox.create .spacer {
+  display: none;
+}
+div.side .sidecontentbox a.helplink {
+  margin-bottom: 12px;
+}
+div.side .sidecontentbox .title {
+  display: inline-block;
+  width: 100%;
+}
+div.side .sidecontentbox .title h1 {
+  color: inherit;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+div.side .sidecontentbox ul.content {
+  border: none;
+}
+div.side .sidecontentbox ul.content li {
+  padding: 2px 0 2px 0;
+}
+div.side .sidecontentbox ul.content li::before {
+  content: "";
+}
+div.side .sidecontentbox ul.content li.more a {
+  color: #3E3175;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 9px;
+}
+div.side .sidecontentbox ul.content li.more a:hover {
+  color: #1A0E4E;
 }
 /* Footer */
 div.footer-parent,
@@ -264,4 +395,78 @@ p.debuginfo p.bottommenu a {
 div.footer-parent p.bottommenu a:hover,
 p.debuginfo p.bottommenu a:hover {
   color: #FFDFDF;
+}
+/* 
+
+This file contains general styling, such as flairs, buttons etc.
+
+*/
+/* General input */
+form {
+  background-color: inherit;
+}
+form input[type="checkbox"] {
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  vertical-align: middle;
+  border: #E4D389 2px solid;
+  cursor: pointer;
+  background-color: white;
+  height: 16px;
+  width: 16px;
+  margin: 0 10px 0 0;
+}
+form input[type="checkbox"]:checked {
+  border: white 2px solid;
+  background-color: #AA3C39;
+}
+/* Flair flags */
+.linkflairlabel,
+.flair {
+  display: inline-block;
+  line-height: 100%;
+  border-radius: 0;
+  border: #6CB371 1px solid;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: #C0DCC2;
+  padding: 2px 2px 2px 2px;
+  font-size: 9px !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #06580B !important;
+}
+.flair {
+  /* TODO: Add more countries */
+}
+.flair.flair-icon::after {
+  width: 10px;
+  height: 10px;
+  vertical-align: top;
+  background-size: 100% 100%;
+  content: "";
+  margin-left: 5px;
+  display: inline-block;
+}
+.flair.flair-brazil::after {
+  background-image: url("%%brazil%%");
+}
+.flair.flair-ireland::after {
+  background-image: url("%%ireland%%");
+}
+.flair.flair-russia::after {
+  background-image: url("%%russia%%");
+}
+.flair.flair-usa::after {
+  background-image: url("%%united-states-of-america%%");
+}
+/* Post displays */
+.thing.stickied.link a.title {
+  color: #AA3C39;
+}
+.thing a.title {
+  color: #090226;
 }
