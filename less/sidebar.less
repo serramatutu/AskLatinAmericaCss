@@ -31,7 +31,7 @@ div.side {
     
     ul {
         list-style-type: none;
-        parring: 0 0 0 0;
+        padding: 0 0 0 0;
         margin: 0 0 0 0;
         
         li {
@@ -109,7 +109,8 @@ div.side {
     }
     
     // hr bottom
-    .titlebox
+    .titlebox,
+    .account-activity-box
     {
         padding-bottom: 12px;
         border-bottom: @color-secondary-1-0 2px solid;
@@ -251,6 +252,10 @@ div.side {
         }
         
         p.users-online {
+            &::before {
+                display: none;    
+            }
+            
             float: right;
             
             text-transform: uppercase;
@@ -336,5 +341,15 @@ div.side {
                 }
             }
         }
+    }
+    
+    &::after {
+        content: "/r/asklatinamerica theme by /u/serramatutu";
+        display: inline-block;
+        
+        font-size: 8px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: @color-secondary-1-4;
     }
 }

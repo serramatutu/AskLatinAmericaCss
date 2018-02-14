@@ -26,7 +26,6 @@ Intensity:
 
 
 /* Import sections */
-@import "iconpaths.less";
 @import "header.less";
 @import "body.less";
 @import "sidebar.less";
@@ -66,6 +65,8 @@ form {
     background-color: inherit;
 }
 
+@import "flags.less"; // Imports flags spritesheet definitions
+
 /* Flair flags */
 .linkflairlabel, .flair {
     display: inline-block;
@@ -91,33 +92,39 @@ form {
 }
 
 .flair {
+    @flair-flag-size: 10px;
     &.flair-icon::after { // Sets up flair to have icon (eg country) after it
-        width: 10px;
-        height: 10px;
+        width: @flair-flag-size;
+        height: @flair-flag-size;
         vertical-align: top;
         
-        background-size: 100% 100%;
         content: "";
         margin-left: 5px;
         display: inline-block;
+        
+        display:inline-block; 
+        overflow:hidden; 
+        
+        background-repeat: no-repeat;
+        background-image:url(@url);
+        background-size: (@flags-width * 100%) (@flags-height * 100%);
     }
     
-    /* TODO: Add more countries */
-    &.flair-brazil::after {
-        background-image: url("@{flag-brazil}");
+    // Oooo boy less is beautiful :')
+    ._generate-flair(@i: length(@flags)) when (@i > 0) { // Iterates over flags list and creates flair classes for them
+        @current: extract(@flags, @i);
+        @x: extract(@current, 1); // X position in spritesheet
+        @y: extract(@current, 2); // Y position in spritesheet
+        @name: extract(@current, 3); // Country name
+        
+        &.flair-@{name}::after { // Flair with the country's name
+            background-position: (-1 * @x * @flair-flag-size) (-1 * @y * @flair-flag-size);
+        }
+        
+        ._generate-flair((@i - 1)) // Calls for next flair generation
     }
     
-    &.flair-ireland::after {
-        background-image: url("@{flag-ireland}");
-    }
-    
-    &.flair-russia::after {
-        background-image: url("@{flag-russia}");
-    }
-    
-    &.flair-usa::after {
-        background-image: url("@{flag-usa}");
-    }
+    ._generate-flair; // Generates all flair classes :)
 }
 
 /* Post displays */
